@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkTheme: '#11001f',
+                        gradientFrom: '#bb82e6',
+                        gradientTo: '#da7d20',
+                        darkGradientFrom: '#6b46c1',
+                        darkGradientTo: '#c05621',
+                    },
+                    fontFamily: {
+                        mono: ['Outfit', 'Ovo', 'monospace'],
+                    },
+                },
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&display=swap" rel="stylesheet">
+</head>
+
+<body class="overflow-x-hidden font-mono dark:bg-darkTheme dark:text-white">
+    <div class="fixed top-0 right-0 w-11/12 h-[200px] -z-10 translate-y-[-30%] dark:hidden overflow-hidden">
+        <img src="./images/header-bg-color.png" alt="" class="w-full h-full object-cover">
+    </div>
+
+    <nav class="w-full fixed px-5 lg:px-8 xl:px-[8%] py-2 flex items-center justify-between z-12">
+        <img src="./images/logo.png" alt="logo" class="w-28 cursor-pointer mr-14 dark:hidden">
+        <img src="./images/logo_dark.png" alt="logo" class="w-28 cursor-pointer mr-14 hidden dark:block">
+
+        <ul
+            class="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50 font-thin dark:border dark:border-white/50 dark:bg-transparent">
+            <li><a href="#top">Home</a></li>
+            <li><a href="#About">About Me</a></li>
+            <li><a href="#Services">Services</a></li>
+            <li><a href="#Work">My Work</a></li>
+            <li><a href="#Contact">Contact Me</a></li>
+        </ul>
+
+        <div class="flex items-center gap-4">
+            <button onclick="toggleTheme()" id="darkModeToggle" class="p-2 rounded-full focus:outline-none">
+                <img src="./images/moon_icon.png" alt="Dark mode" id="moonIcon" class="w-6 dark:hidden">
+                <img src="./images/sun_icon.png" alt="Light mode" id="sunIcon" class="w-6 hidden dark:block">
+            </button>
+
+            <a href="#Contact"
+                class="hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4 dark:border-white/50">
+                Contact
+                <img src="./images/arrow-icon.png" alt="" class="w-3 dark:hidden">
+                <img src="./images/arrow-icon-dark.png" alt="" class="w-3 hidden dark:block">
+            </a>
+
+            <button class="block md:hidden ml-3" onclick="openMenu()">
+                <img src="./images/menu-black.png" alt="" class="w-6 dark:hidden">
+                <img src="./images/menu-white.png" alt="" class="w-6 hidden dark:block">
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <ul id="SideMenu"
+            class="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500 dark:bg-[#2a004a] dark:text-white">
+            <div class="absolute right-6 top-6" onclick="CloseMenu()">
+                <img src="./images/close-black.png" alt="" class="w-5 cursor-pointer dark:hidden">
+                <img src="./images/close-white.png" alt="" class="w-5 cursor-pointer hidden dark:block">
+            </div>
+            <li><a href="#top" onclick="CloseMenu()">Home</a></li>
+            <li><a href="#About" onclick="CloseMenu()">About Me</a></li>
+            <li><a href="#Services" onclick="CloseMenu()">Services</a></li>
+            <li><a href="#Work" onclick="CloseMenu()">My Work</a></li>
+            <li><a href="#Contact" onclick="CloseMenu()">Contact Me</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <div
+        class="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center border-none justify-center gap-4">
+        <img src="./images/profile-img1.png" alt="" class="rounded-full w-32 border-none" style="border: none;">
+        <h3 class="flex items-center gap-2 text-xl md:text-2xl mb-3">Hi I am fady wageih
+            <img src="./images/hand-icon.png" alt="" class="w-6">
+        </h3>
+
+        <h1 class="text-3xl sm:text-6xl lg:text-[66px]">FullStack Developer.</h1>
+        <p class="max-w-2xl mx-auto">Passionate about building end-to-end web apps using .NET (C#, ASP.NET Core) and
+            Angular, ensuring clean architecture and seamless user experiences.</p>
+        <div class="flex flex-col sm:flex-row items-center gap-4 mt-4">
+            <a href="#Contact"
+                class="px-10 py-3 border rounded-full bg-gradient-to-r from-gradientFrom to-gradientTo dark:from-darkGradientFrom dark:to-darkGradientTo text-white flex items-center gap-2">
+                Contact me
+                <img src="./images/right-arrow-white.png" alt="" class="w-5">
+            </a>
+            <a href="./Fady_Wageih_Fakhry.pdf" download="Fady_Wageih_Fakhry_Resume.pdf"
+                class="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black">
+                My resume
+                <img src="./images/download-icon.png" alt="Download" class="w-5">
+            </a>
+        </div>
+    </div>
+
+    <!-- About Me Section -->
+    <div id="About" class="w-full px-4 sm:px-[12%] py-9 scroll-mt-20">
+        <div class="max-w-7xl mx-auto">
+            <h4 class="text-center mb-2 text-lg">Introduction</h4>
+            <h2 class="text-center text-5xl">About Me</h2>
+
+            <div class="flex w-full flex-col lg:flex-row gap-8 my-12 items-center justify-center">
+                <div class="max-w-max mx-auto relative ">
+                    <div>
+                        <img src="./images/user-image1.png" alt="" class="w-full max-w-xs rounded-3xl mx-auto">
+                    </div>
+                    <div
+                        class="bg-white w-1/2 aspect-square absolute right-0 bottom-0 rounded-full translate-x-1/4 translate-y-1/3 shadow-[0_4px_55px_rgba(149,0,162,0.15)] flex items-center justify-center">
+                        <img src="./images/Circular.png" alt="" class="w-full animate-[spin_7.5s_linear_infinite]">
+                    </div>
+                </div>
+
+                <div class="lg:w-2/3 flex flex-col justify-center">
+                    <p class="mb-9 mt-12 text-center lg:text-left">With a background in Business Information Systems and
+                        hands-on experience in .NET and Angular, I bridge the gap between functionality and aesthetics.
+                        Every line of code I write aims for efficiency, scalability, and user satisfaction."</p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- Skills Cards -->
+                        <div
+                            class="bg-gray-50 p-4 rounded-lg hover:bg-[#fcf4ff] hover:-translate-y-1 duration-500 hover:shadow-[4px_4px_0_#000]">
+                            <div class="flex items-center gap-3 mb-2">
+                                <img src="./images/code-icon.png" alt="" class="w-6">
+                                <h3 class="font-semibold">Languages</h3>
+                            </div>
+                            <p class="text-gray-600 text-sm"> Fluent in modern web tech: HTML/CSS,
+                                JavaScript/TypeScript, Python, and C#.</p>
+                        </div>
+
+                        <div
+                            class="bg-gray-50 p-4 rounded-lg hover:bg-[#fcf4ff] hover:-translate-y-1 duration-500 hover:shadow-[4px_4px_0_#000]">
+                            <div class="flex items-center gap-3 mb-2">
+                                <img src="./images/OIP.jpg" alt="" class="w-6">
+                                <h3 class="font-semibold">Frameworks</h3>
+                            </div>
+                            <p class="text-gray-600 text-sm">Specialized in .NET for robust backends and Angular for
+                                dynamic frontends.</p>
+                        </div>
+
+                        <div
+                            class="bg-gray-50 p-4 rounded-lg hover:bg-[#fcf4ff] hover:-translate-y-1 duration-500 hover:shadow-[4px_4px_0_#000]">
+                            <div class="flex items-center gap-3 mb-2">
+                                <img src="./images/edu-icon.png" alt="" class="w-6">
+                                <h3 class="font-semibold">Education</h3>
+                            </div>
+                            <p class="text-gray-600 text-sm"> Bachelor's in Business Information Systems — Bridging tech
+                                and business.</p>
+                        </div>
+
+                        <div
+                            class="bg-gray-50 p-4 rounded-lg hover:bg-[#fcf4ff] hover:-translate-y-1 duration-500 hover:shadow-[4px_4px_0_#000]">
+                            <div class="flex items-center gap-3 mb-2">
+                                <img src="./images/project-icon.png" alt="" class="w-6">
+                                <h3 class="font-semibold">Project</h3>
+                            </div>
+                            <p class="text-gray-600 text-sm">Delivered 5+ scalable projects, from web apps to enterprise
+                                solutions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <div id="Services" class="w-full px-4 sm:px-[12%] py-10 scroll-mt-20">
+        <div class="max-w-7xl mx-auto">
+            <h4 class="text-center mb-2 text-lg">What I Offer</h4>
+            <h2 class="text-center text-4xl sm:text-5xl">My Services</h2>
+            <p class="text-center max-w-2xl mx-auto mt-5 mb-12 text-gray-600 ">
+                As a Full Stack .NET/Angular developer, I provide comprehensive solutions from backend to frontend,
+                delivering robust and scalable applications.
+            </p>
+
+            <div class="flex justify-center">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
+                    <!-- Service Card 1 -->
+                    <div
+                        class="border border-gray-300 rounded-lg px-6 py-8 hover:shadow-[4px_4px_0_#000] cursor-pointer hover:bg-[#fcf4ff] hover:-translate-y-1 duration-500 transition-all">
+                        <div class="flex justify-center">
+                            <img src="./images/web-icon.png" alt="Full Stack Development" class="w-10">
+                        </div>
+                        <h3 class="text-lg my-4 text-gray-700 text-center  dark:text-white/80">Full Stack Development
+                        </h3>
+                        <p class="text-sm text-gray-600 leading-6 text-center  dark:text-white/80">
+                            End-to-end web applications using .NET Core backend and Angular frontend with clean
+                            architecture, RESTful APIs, and microservices.
+                        </p>
+
+                    </div>
+
+                    <!-- Service Card 2 -->
+                    <div
+                        class="border border-gray-300 rounded-lg px-6 py-8 hover:shadow-[4px_4px_0_#000] cursor-pointer hover:bg-[#fcf4ff] hover:-translate-y-1 duration-500 transition-all">
+                        <div class="flex justify-center">
+                            <img src="./images/api-icon.png" alt=".NET Backend" class="w-10">
+                        </div>
+                        <h3 class="text-lg my-4 text-gray-700 text-center  dark:text-white/80">.NET Backend</h3>
+                        <p class="text-sm text-gray-600 leading-6 text-center  dark:text-white/80">
+                            High-performance APIs with .NET Core, Entity Framework, and SQL Server. Secure
+                            authentication using JWT, Identity, and OAuth.
+                        </p>
+                        <!-- <div class="flex justify-center mt-5">
+                            <a href="#" class="flex items-center gap-2 text-sm mt-5">Read more <img
+                                    src="./images/right-arrow.png" alt="" class="w-4"></a>
+                        </div> -->
+                    </div>
+
+                    <!-- Service Card 3 -->
+                    <div
+                        class="border border-gray-300 rounded-lg px-6 py-8 hover:shadow-[4px_4px_0_#000] cursor-pointer hover:bg-[#fcf4ff] hover:-translate-y-1 duration-500 transition-all">
+                        <div class="flex justify-center">
+                            <img src="./images/ui-icon.png" alt="Angular Development" class="w-10">
+                        </div>
+                        <h3 class="text-lg my-4 text-gray-700 text-center  dark:text-white/80">Angular Development</h3>
+                        <p class="text-sm text-gray-600 leading-6 text-center  dark:text-white/80">
+                            Modern SPAs with Angular, RxJS, and state management. Responsive UIs using Tailwind CSS,
+                            Angular Material, and optimized performance.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- My Work Section -->
+    <div id="Work" class="w-full px-4 sm:px-[12%] py-10 scroll-mt-20">
+        <div class="max-w-7xl mx-auto">
+            <h4 class="text-center mb-2 text-lg">My Portfolio</h4>
+            <h2 class="text-center text-3xl sm:text-4xl lg:text-5xl mb-8">My latest work</h2>
+            <div class="flex justify-center">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 w-full max-w-6xl">
+                    <!-- Work Item 1 -->
+                    <div
+                        class="aspect-square bg-[url('./images/work-5.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group overflow-hidden">
+                        <div class="absolute inset-0 flex items-end justify-center pb-4">
+                            <div
+                                class="bg-white/90 backdrop-blur-sm w-11/12 sm:w-10/12 rounded-md py-2 sm:py-3 px-3 sm:px-5 flex items-center justify-between duration-300 transform group-hover:scale-105 transition-all">
+                                <div>
+                                    <h2 class="font-semibold text-sm sm:text-base  dark:text-black/80">FrontEnd Project
+                                    </h2>
+                                    <p class="text-xs sm:text-sm text-gray-700">Web Design</p>
+                                </div>
+                                <div
+                                    class="border rounded-full border-black w-7 sm:w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-blue-300 transition">
+                                    <img src="./images/send-icon.png" alt="" class="w-3 sm:w-5">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Work Item 2 -->
+                    <div
+                        class="aspect-square bg-[url('./images/work-6.jpg')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group overflow-hidden">
+                        <div class="absolute inset-0 flex items-end justify-center pb-4">
+                            <div
+                                class="bg-white/90 backdrop-blur-sm w-11/12 sm:w-10/12 rounded-md py-2 sm:py-3 px-3 sm:px-5 flex items-center justify-between duration-300 transform group-hover:scale-105 transition-all">
+                                <div>
+                                    <h2 class="font-semibold text-sm sm:text-base  dark:text-black/80">BackEnd Project
+                                    </h2>
+                                    <p class="text-xs sm:text-sm text-gray-700">API Development</p>
+                                </div>
+                                <div
+                                    class="border rounded-full border-black w-7 sm:w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-blue-300 transition">
+                                    <img src="./images/send-icon.png" alt="" class="w-3 sm:w-5">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Work Item 3 -->
+                    <div
+                        class="aspect-square bg-[url('./images/work-3.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group overflow-hidden">
+                        <div class="absolute inset-0 flex items-end justify-center pb-4">
+                            <div
+                                class="bg-white/90 backdrop-blur-sm w-11/12 sm:w-10/12 rounded-md py-2 sm:py-3 px-3 sm:px-5 flex items-center justify-between duration-300 transform group-hover:scale-105 transition-all">
+                                <div>
+                                    <h2 class="font-semibold text-sm sm:text-base  dark:text-black/80">FullStack Project
+                                    </h2>
+                                    <p class="text-xs sm:text-sm text-gray-700">Web Application</p>
+                                </div>
+                                <div
+                                    class="border rounded-full border-black w-7 sm:w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-blue-300 transition">
+                                    <img src="./images/send-icon.png" alt="" class="w-3 sm:w-5">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Work Item 4 -->
+                    <div
+                        class="aspect-square bg-[url('./images/work-2.jpg')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group overflow-hidden">
+                        <div class="absolute inset-0 flex items-end justify-center pb-4">
+                            <div
+                                class="bg-white/90 backdrop-blur-sm w-11/12 sm:w-10/12 rounded-md py-2 sm:py-3 px-3 sm:px-5 flex items-center justify-between duration-300 transform group-hover:scale-105 transition-all">
+                                <div>
+                                    <h2 class="font-semibold text-sm sm:text-base  dark:text-black/80">Mobile Project
+                                    </h2>
+                                    <p class="text-xs sm:text-sm text-gray-700">Responsive Design</p>
+                                </div>
+                                <div
+                                    class="border rounded-full border-black w-7 sm:w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-blue-300 transition">
+                                    <img src="./images/send-icon.png" alt="" class="w-3 sm:w-5">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="Contact" class="w-full px-4 sm:px-[12%] py-10 scroll-mt-20 bg-[url('./images/footer-bg-color.png')] bg-no-repeat 
+        bg-[length:90%_auto] bg-center dark:bg-none">
+        <div class="max-w-7xl mx-auto">
+            <h4 class="text-center mb-2 text-lg">Connect with me</h4>
+            <h2 class="text-center text-4xl sm:text-5xl">Get in touch</h2>
+            <p class="text-center max-w-2xl mx-auto mt-5 mb-12 text-gray-600 dark:text-white/80">
+                Whether you have a project to discuss, a problem to solve, or just want to say hello —
+                I’m here to help! Let’s collaborate to create something extraordinary.
+                Your ideas deserve the right execution, and I’d love to be part of that journey.
+                Drop me a message, and let’s get started!
+            </p>
+
+            <div class="flex justify-center">
+                <form id="contactForm" method="post" action="https://api.web3forms.com/submit" class="w-full max-w-2xl">
+                    <input type="hidden" name="access_key" value="00841dcd-3462-47b0-9823-c3c2c081802e">
+                    <input type="hidden" name="from_name" value="Your Website Name">
+                    <input type="hidden" name="botcheck" id="botcheck" value="">
+                    <input type="checkbox" name="botcheck" style="display: none;">
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10 mb-8">
+                        <input type="text" placeholder="Enter your name" name="name" required class="flex-1 p-3 outline-none border border-gray-300 rounded-md
+                bg-white text-gray-800 dark:bg-darkTheme/20 dark:border-gray-600 
+                dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+
+                        <input type="email" placeholder="Enter your email" name="email" required class="flex-1 p-3 outline-none border border-gray-300 rounded-md
+                bg-white text-gray-800 dark:bg-darkTheme/20 dark:border-gray-600 
+                dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                    </div>
+
+                    <textarea rows="6" placeholder="Enter your message" name="message" required class="w-full p-4 outline-none rounded-md mb-6 flex-1 border border-gray-300
+            bg-white text-gray-800 dark:bg-darkTheme/20 dark:border-gray-600 
+            dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"></textarea>
+
+                    <div class="flex justify-center">
+                        <button type="submit" id="submitBtn" class="py-3 px-8 flex items-center justify-between gap-2 
+                bg-black/80 text-white rounded-full hover:bg-black duration-500
+                dark:bg-transparent dark:border-[0.5px] dark:hover:bg-darkHover">
+                            <span id="submitText">Submit now</span>
+                            <span id="submitIcon">
+                                <img src="./images/right-arrow-white.png" alt="" class="w-4">
+                            </span>
+                        </button>
+                    </div>
+
+                    <div id="result" class="hidden mt-4 text-center p-4 rounded-lg"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="mt-8 text-center">
+    <p class="mb-4">Or contact me directly:</p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="mailto:fadywageih14@gmail.com" class="flex items-center gap-2 px-6 py-2 border rounded-full">
+            <img src="./images/mail_icon.png" alt="Email" class="w-5">
+            fadywageih14@gmail.com
+        </a>
+        <a href="https://wa.me/201022469810" class="flex items-center gap-2 px-6 py-2 border rounded-full">
+            <img src="./images/whatsApp.jpeg" alt="WhatsApp" class="w-5">
+            WhatsApp
+        </a>
+    </div>
+</div>
+    <!-- Footer -->
+    <div class="mt-20">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center">
+                <img src="./images/logo.png" alt="" class="w-36 mx-auto mb-2 dark:hidden">
+                <img src="./images/logo_dark.png" alt="" class="w-36 mx-auto mb-2 hidden dark:block">
+
+                <div class="w-max flex items-center gap-2 mx-auto">
+                    <img src="./images/mail_icon.png" alt="" class="w-6">
+                    fadywageih14@gmail.com
+                </div>
+            </div>
+            <div class="text-center sm:flex items-center justify-between border-t border-gray-400 px-[10%] mt-12 py-6">
+                <p>&copy; 2025 <span class="font-medium">fady wageih</span> all rights reserved</p>
+                <ul class="flex items-center gap-10 justify-center mt-4 sm:mt-0">
+                    <li>
+                        <a href="https://www.linkedin.com/in/fady-wageih-a57a80289/" target="_blank"
+                            class="hover:text-purple-600 hover:scale-110 transition-all duration-300">
+                            LinkedIn
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/fadywageih" target="_blank"
+                            class="hover:text-purple-600 hover:scale-110 transition-all duration-300">
+                            GitHub
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/fady_wageih1/" target="_blank"
+                            class="hover:text-purple-600 hover:scale-110 transition-all duration-300">
+                            Instagram
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://web.facebook.com/?ref=homescreenpwa&_rdc=1&_rdr#" target="_blank"
+                            class="hover:text-purple-600 hover:scale-110 transition-all duration-300">
+                            Facebook
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
